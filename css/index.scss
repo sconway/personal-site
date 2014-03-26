@@ -1,0 +1,264 @@
+$cube-width:  200px;
+$cube-height: 200px;
+
+html{
+	width: 100%;
+	height: 100%;
+	padding: 0;
+}
+
+body{
+	width: 100%;
+	height: 100%;
+	margin: 0;
+}
+
+#cube_row {
+	position: absolute;
+	width: 85%;
+	left: 50%;
+	top: 50%;
+	-webkit-perspective: 1000px;
+	   -moz-perspective: 1000px;
+		 -o-perspective: 1000px;
+			perspective: 1000px;
+
+	-webkit-transform: translate(-50%, -50%);
+	   -moz-transform: translate(-50%, -50%);
+		 -o-transform: translate(-50%, -50%);
+			transform: translate(-50%, -50%);
+}
+
+.cube_container {
+	position: relative;
+	display: inline-block;
+	width: 24.5%;
+}
+
+.cube {
+	position: relative;
+	width: $cube-width;
+	height: $cube-height; 
+	margin: 0 auto;
+
+	-webkit-transform-style: preserve-3d;
+	   -moz-transform-style: preserve-3d;
+		 -o-transform-style: preserve-3d;
+			transform-style: preserve-3d;
+
+	-webkit-transition: all 0.75s linear;
+	   -moz-transition: all 0.75s linear;
+	     -o-transition: all 0.75s linear;
+			transition: all 0.75s linear;
+}
+
+.cube div {
+	position: absolute;
+	width: $cube-width;
+	height: $cube-height;
+	box-shadow: inset 0 0 30px ;
+	color: rgba(0,0,0,0.5);
+	font-size: 20px;
+	text-align: center;
+	line-height: $cube-height;
+	text-transform: uppercase;
+}
+
+#cube1 {
+
+	&:hover{
+		-webkit-transform: rotateY(-90deg);
+		   -moz-transform: rotateY(-90deg);
+			 -o-transform: rotateY(-90deg);
+				transform: rotateY(-90deg);
+	}
+}
+
+#cube2 {
+ 
+	&:hover {
+		-webkit-transform: rotateX(90deg);
+		   -moz-transform: rotateX(90deg);
+		     -o-transform: rotateX(90deg);
+				transform: rotateX(90deg);
+	}
+}
+
+#cube3{
+
+	&:hover{
+		-webkit-transform: rotateX(-90deg);
+		   -moz-transform: rotateX(-90deg);
+			 -o-transform: rotateX(-90deg);
+				transform: rotateX(-90deg);
+	}
+}
+
+#cube4{
+
+	&:hover {
+		-webkit-transform: rotateY(90deg);
+		   -moz-transform: rotateY(90deg);
+			 -o-transform: rotateY(90deg);
+				transform: rotateY(90deg);
+	}
+}
+
+.back {
+	-webkit-transform: translateZ(-$cube-width/2) rotateY(180deg);
+	   -moz-transform: translateZ(-$cube-width/2) rotateY(180deg);
+	     -o-transform: translateZ(-$cube-width/2) rotateY(180deg);
+			transform: translateZ(-$cube-width/2) rotateY(180deg);
+
+}
+
+.right {
+	-webkit-transform: rotateY(-270deg) translateX($cube-width/2);
+	   -moz-transform: rotateY(-270deg) translateX($cube-width/2);
+	     -o-transform: rotateY(-270deg) translateX($cube-width/2);
+			transform: rotateY(-270deg) translateX($cube-width/2);
+
+	-webkit-transform-origin: top right;
+	   -moz-transform-origin: top right;
+		 -o-transform-origin: top right;
+			transform-origin: top right;
+}
+
+.left {
+	-webkit-transform: rotateY(270deg) translateX(-$cube-width/2);
+	   -moz-transform: rotateY(270deg) translateX(-$cube-width/2);
+	     -o-transform: rotateY(270deg) translateX(-$cube-width/2);
+			transform: rotateY(270deg) translateX(-$cube-width/2);
+
+	-webkit-transform-origin: center left;
+	   -moz-transform-origin: center left;
+		 -o-transform-origin: center left;
+			transform-origin: center left;
+}
+
+.top {
+	-webkit-transform: rotateX(-90deg) translateY(-$cube-width/2);
+	   -moz-transform: rotateX(-90deg) translateY(-$cube-width/2);
+		 -o-transform: rotateX(-90deg) translateY(-$cube-width/2);
+			transform: rotateX(-90deg) translateY(-$cube-width/2);
+
+	-webkit-transform-origin: top center;
+   	   -moz-transform-origin: top center;
+		 -o-transform-origin: top center;
+			transform-origin: top center;
+}
+
+.bottom {
+	-webkit-transform: rotateX(90deg) translateY($cube-width/2);
+	   -moz-transform: rotateX(90deg) translateY($cube-width/2);
+		 -o-transform: rotateX(90deg) translateY($cube-width/2);
+			transform: rotateX(90deg) translateY($cube-width/2);
+
+	-webkit-transform-origin: bottom center;
+	   -moz-transform-origin: bottom center;
+		 -o-transform-origin: bottom center;
+			transform-origin: bottom center;
+}
+
+.front {
+	-webkit-transform: translateZ($cube-width/2);
+	   -moz-transform: translateZ($cube-width/2);
+	     -o-transform: translateZ($cube-width/2);
+			transform: translateZ($cube-width/2);
+}
+
+
+
+/* styles for medium width (2 x 2 cube display) */
+@media (min-width: 590px) and (max-width: 955px) {
+
+	#cube_row {
+		width: 75%;
+	}
+
+	.cube_container {
+		width: 49%;
+	}
+
+	.cube {
+		margin: 15% auto;
+	}
+
+}
+
+/* styles for smartphone in portrait mode */
+@media (min-width: 320px) and (max-width: 589px) {
+
+	#cube_row {
+		width: 50%;
+	}
+	
+	.cube_container {
+		display: block;
+		width: 100%;
+	}
+
+	.cube { 
+		width: $cube-width/2;
+		height: $cube-height/2; 
+		margin: 20% auto;
+	}
+
+	.cube div {
+		width: $cube-width/2;
+		height: $cube-height/2;
+		text-align: center;
+		line-height: $cube-height/2;
+		overflow: hidden;
+	}
+
+	.back {
+		-webkit-transform: translateZ(-$cube-width/4) rotateY(180deg);
+		   -moz-transform: translateZ(-$cube-width/4) rotateY(180deg);
+			  -otransform: translateZ(-$cube-width/4) rotateY(180deg);
+				transform: translateZ(-$cube-width/4) rotateY(180deg);
+	}
+
+	.right {
+		-webkit-transform: rotateY(-270deg) translateX($cube-width/4);
+		   -moz-transform: rotateY(-270deg) translateX($cube-width/4);
+		     -o-transform: rotateY(-270deg) translateX($cube-width/4);
+				transform: rotateY(-270deg) translateX($cube-width/4);
+
+	}
+
+	.left {
+		-webkit-transform: rotateY(270deg) translateX(-$cube-width/4);
+		   -moz-transform: rotateY(270deg) translateX(-$cube-width/4);
+		     -o-transform: rotateY(270deg) translateX(-$cube-width/4);
+				transform: rotateY(270deg) translateX(-$cube-width/4);
+
+	}
+
+	.top {
+		-webkit-transform: rotateX(-90deg) translateY(-$cube-width/4);
+		   -moz-transform: rotateX(-90deg) translateY(-$cube-width/4);
+		     -o-transform: rotateX(-90deg) translateY(-$cube-width/4);
+				transform: rotateX(-90deg) translateY(-$cube-width/4);
+
+	}
+
+	.bottom {
+		-webkit-transform: rotateX(90deg) translateY($cube-width/4);
+		   -moz-transform: rotateX(90deg) translateY($cube-width/4);
+		     -o-transform: rotateX(90deg) translateY($cube-width/4);
+				transform: rotateX(90deg) translateY($cube-width/4);
+	}
+
+	.front {
+		-webkit-transform: translateZ($cube-width/4);
+		   -moz-transform: translateZ($cube-width/4);
+		     -o-transform: translateZ($cube-width/4);
+		 		transform: translateZ($cube-width/4);
+	}
+	
+}
+
+
+
+

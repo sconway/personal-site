@@ -1,0 +1,53 @@
+<!doctype html>
+<html>
+<head>
+   <title>test</title>
+   <meta charset="utf-8" />
+   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+   <link rel="stylesheet" type="text/css" href="../css/source.css" />
+   <script type="text/javascript" src="../js/prettify.js"></script>
+   <link rel="stylesheet" type="text/css" href="../css/prettify.css">
+   <link rel="stylesheet" type="text/css" href="../css/sons-of-obsidian-theme.css">
+</head>
+
+<body onload="prettyPrint()">
+	<div id="wrapper">
+		<pre class="code prettyprint linenums">
+(function() {
+
+	/* 
+	 * This function splits the screen into two rows by setting each
+	 * list item to be half of the total screen size 
+	 */
+	var initDisplay = function() {
+		var windowHeight = $(window).height();
+		$('.row > ul > li').css('height', windowHeight/2);
+	};
+
+	initDisplay();
+
+	// slide the hidden navigation panel out when a language is clicked
+	$('.expand').click(function() {
+		$(this).next().toggleClass('shrunk');
+		$(this).next().next().toggleClass('expanded');
+	});
+
+	// attach 'fancybox' handler
+	$('.links').fancybox({
+		maxWidth	: 800,
+		maxHeight	: 600,
+		fitToView	: false,
+		width		: '70%',
+		height		: '70%',
+		autoSize	: false,
+		closeClick	: false,
+		openEffect	: 'none',
+		closeEffect	: 'none'
+	});
+
+
+}());
+		</pre>
+	</div>
+</body>
+</html>
